@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Home - TruckIt Logistics";
+}
+
+<!-- Hero Section -->
+<!-- Full-Width Hero Section -->
+<section class="hero-section vh-100 d-flex align-items-center position-relative">
+    <!-- Hero Image Background -->
+    <div class="hero-background position-absolute w-100 h-100">
+        <img src="~/images/truck-hero.jpg" alt="Truck in motion"
+             class="w-100 h-100 object-fit-cover">
+        <div class="position-absolute w-100 h-100 bg-dark opacity-50"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container position-relative z-index-1 py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 text-white">
+                <h1 class="display-4 fw-bold mb-4">Your Trusted Logistics Partner</h1>
+                <p class="lead mb-4">Streamline your freight management with our comprehensive transportation solutions.</p>
+                <div class="d-flex gap-3">
+                    <a href="/Account/Register" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-rocket me-2"></i> Get Started
+                    </a>
+                    <a href="#services" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-search me-2"></i> Explore Services
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- Empty column for layout balance -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded-3 shadow-sm">
+                    <h2 class="text-primary fw-bold">5,000+</h2>
+                    <p class="mb-0">Shipments Monthly</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded-3 shadow-sm">
+                    <h2 class="text-primary fw-bold">98%</h2>
+                    <p class="mb-0">On-Time Delivery</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded-3 shadow-sm">
+                    <h2 class="text-primary fw-bold">1,200+</h2>
+                    <p class="mb-0">Verified Carriers</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded-3 shadow-sm">
+                    <h2 class="text-primary fw-bold">24/7</h2>
+                    <p class="mb-0">Customer Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Services</h2>
+            <p class="lead text-muted">Comprehensive solutions for all your logistics needs</p>
+        </div>
+        <div class="row g-4">
+            <!-- Freight Booking Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-primary-light rounded-circle p-3 mb-4 mx-auto">
+                            <i class="fas fa-truck fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold">Freight Booking</h4>
+                        <p class="text-muted">Instant truck requests with real-time availability and pricing.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Tracking Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-primary-light rounded-circle p-3 mb-4 mx-auto">
+                            <i class="fas fa-map-marked-alt fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold">Live Tracking</h4>
+                        <p class="text-muted">Real-time GPS tracking for all your shipments.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fleet Management Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-wrapper bg-primary-light rounded-circle p-3 mb-4 mx-auto">
+                            <i class="fas fa-chart-line fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold">Fleet Management</h4>
+                        <p class="text-muted">Optimize your fleet operations with our advanced tools.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-4">Ready to Simplify Your Logistics?</h2>
+        <p class="lead mb-4">Join hundreds of businesses already benefiting from our platform</p>
+        <a href="/Account/Register" class="btn btn-light btn-lg px-5">
+            <i class="fas fa-user-plus me-2"></i> Sign Up Free
+        </a>
+    </div>
+</section>
