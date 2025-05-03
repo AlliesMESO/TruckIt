@@ -3,35 +3,49 @@
 }
 
 <!-- Hero Section -->
-<!-- Full-Width Hero Section -->
-<section class="hero-section vh-100 d-flex align-items-center position-relative">
+<section class="hero-section vh-100 d-flex flex-column position-relative overflow-hidden">
     <!-- Hero Image Background -->
-    <div class="hero-background position-absolute w-100 h-100">
+    <div class="hero-background position-absolute w-100 h-100 start-0 top-0">
         <img src="~/images/truck-hero.jpg" alt="Truck in motion"
              class="w-100 h-100 object-fit-cover">
-        <div class="position-absolute w-100 h-100 bg-dark opacity-50"></div>
+        <div class="hero-overlay position-absolute w-100 h-100 start-0 top-0"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="container position-relative z-index-1 py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0 text-white">
-                <h1 class="display-4 fw-bold mb-4">Your Trusted Logistics Partner</h1>
-                <p class="lead mb-4">Streamline your freight management with our comprehensive transportation solutions.</p>
-                <div class="d-flex gap-3">
-                    <a href="/Account/Register" class="btn btn-light btn-lg px-4">
-                        <i class="fas fa-rocket me-2"></i> Get Started
-                    </a>
-                    <a href="#services" class="btn btn-outline-light btn-lg px-4">
-                        <i class="fas fa-search me-2"></i> Explore Services
-                    </a>
+    <!-- Hero Section -->
+    <section class="hero-section vh-100 position-relative">
+        <!-- Hero Image Background -->
+        <div class="hero-background position-absolute w-100 h-100">
+            <img src="~/images/truck-hero.jpg" alt="Truck in motion"
+                 class="w-100 h-100 object-fit-cover">
+            <div class="hero-overlay position-absolute w-100 h-100"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container position-relative z-1 h-100 d-flex align-items-center">
+            <div class="row w-100 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-white">
+                    <h1 class="display-4 fw-bold mb-4">Your Trusted Logistics Partner</h1>
+                    <p class="lead mb-4">Streamline your freight management with our comprehensive transportation solutions.</p>
+                    <div class="d-flex gap-3">
+                        <a href="/Account/Register" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-rocket me-2"></i> Get Started
+                        </a>
+                        <a href="#services" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-search me-2"></i> Explore Services
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <!-- Empty column for layout balance -->
-            </div>
         </div>
-    </div>
+
+        <!-- Login Button at Truck Intersection Point -->
+        <div class="login-button-container">
+            <a href="/Account/Login" class="btn-login">
+                <i class="fas fa-sign-in-alt me-2"></i> Login
+            </a>
+        </div>
+    </section>
+
 </section>
 
 <!-- Stats Section -->
@@ -39,25 +53,25 @@
     <div class="container">
         <div class="row g-4 text-center">
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded-3 shadow-sm">
+                <div class="p-4 bg-white rounded-3 shadow-sm stats-card">
                     <h2 class="text-primary fw-bold">5,000+</h2>
                     <p class="mb-0">Shipments Monthly</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded-3 shadow-sm">
+                <div class="p-4 bg-white rounded-3 shadow-sm stats-card">
                     <h2 class="text-primary fw-bold">98%</h2>
                     <p class="mb-0">On-Time Delivery</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded-3 shadow-sm">
+                <div class="p-4 bg-white rounded-3 shadow-sm stats-card">
                     <h2 class="text-primary fw-bold">1,200+</h2>
                     <p class="mb-0">Verified Carriers</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded-3 shadow-sm">
+                <div class="p-4 bg-white rounded-3 shadow-sm stats-card">
                     <h2 class="text-primary fw-bold">24/7</h2>
                     <p class="mb-0">Customer Support</p>
                 </div>
