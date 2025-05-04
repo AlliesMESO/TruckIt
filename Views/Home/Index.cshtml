@@ -11,41 +11,30 @@
         <div class="hero-overlay position-absolute w-100 h-100 start-0 top-0"></div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section vh-100 position-relative">
-        <!-- Hero Image Background -->
-        <div class="hero-background position-absolute w-100 h-100">
-            <img src="~/images/truck-hero.jpg" alt="Truck in motion"
-                 class="w-100 h-100 object-fit-cover">
-            <div class="hero-overlay position-absolute w-100 h-100"></div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="container position-relative z-1 h-100 d-flex align-items-center">
-            <div class="row w-100 align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0 text-white">
-                    <h1 class="display-4 fw-bold mb-4">Your Trusted Logistics Partner</h1>
-                    <p class="lead mb-4">Streamline your freight management with our comprehensive transportation solutions.</p>
-                    <div class="d-flex gap-3">
-                        <a href="/Account/Register" class="btn btn-light btn-lg px-4">
-                            <i class="fas fa-rocket me-2"></i> Get Started
-                        </a>
-                        <a href="#services" class="btn btn-outline-light btn-lg px-4">
-                            <i class="fas fa-search me-2"></i> Explore Services
-                        </a>
-                    </div>
+    <!-- Hero Content -->
+    <div class="container position-relative z-1 h-100 d-flex align-items-center">
+        <div class="row w-100 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 text-white">
+                <h1 class="display-4 fw-bold mb-4">Your Trusted Logistics Partner</h1>
+                <p class="lead mb-4">Streamline your freight management with our comprehensive transportation solutions.</p>
+                <div class="d-flex gap-3">
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-rocket me-2"></i> Get Started
+                    </a>
+                    <a href="#services" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-search me-2"></i> Explore Services
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Login Button at Truck Intersection Point -->
-        <div class="login-button-container">
-            <a href="/Account/Login" class="btn-login">
-                <i class="fas fa-sign-in-alt me-2"></i> Login
-            </a>
-        </div>
-    </section>
-
+    <!-- Login Button at Truck Intersection Point -->
+    <div class="login-button-container">
+        <a asp-controller="Account" asp-action="Login" class="btn-login">
+            <i class="fas fa-sign-in-alt me-2"></i> Login
+        </a>
+    </div>
 </section>
 
 <!-- Stats Section -->
@@ -97,7 +86,7 @@
                         </div>
                         <h4 class="fw-bold">Freight Booking</h4>
                         <p class="text-muted">Instant truck requests with real-time availability and pricing.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                        <a asp-controller="Services" asp-action="Freight" class="btn btn-sm btn-outline-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +100,7 @@
                         </div>
                         <h4 class="fw-bold">Live Tracking</h4>
                         <p class="text-muted">Real-time GPS tracking for all your shipments.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                        <a asp-controller="Services" asp-action="Tracking" class="btn btn-sm btn-outline-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +114,7 @@
                         </div>
                         <h4 class="fw-bold">Fleet Management</h4>
                         <p class="text-muted">Optimize your fleet operations with our advanced tools.</p>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+                        <a asp-controller="Services" asp-action="Fleet" class="btn btn-sm btn-outline-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -138,8 +127,79 @@
     <div class="container text-center py-4">
         <h2 class="fw-bold mb-4">Ready to Simplify Your Logistics?</h2>
         <p class="lead mb-4">Join hundreds of businesses already benefiting from our platform</p>
-        <a href="/Account/Register" class="btn btn-light btn-lg px-5">
+        <a asp-controller="Account" asp-action="Register" class="btn btn-light btn-lg px-5">
             <i class="fas fa-user-plus me-2"></i> Sign Up Free
         </a>
     </div>
 </section>
+
+<!-- Help Centre Section -->
+<section id="help-centre" class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h2 class="display-4 fw-bold mb-4">Questions? Let us help you</h2>
+                <p class="lead">Our team is ready to assist you with any questions or concerns you may have about our services.</p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card bg-transparent border-light">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4"><i class="fas fa-question-circle me-2"></i> How can we help you?</h3>
+
+                        <form id="helpForm">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent text-white" id="firstName" placeholder="First Name" required>
+                                        <label for="firstName">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent text-white" id="lastName" placeholder="Last Name" required>
+                                        <label for="lastName">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control bg-transparent text-white" id="email" placeholder="Email Address" required>
+                                <label for="email">Email Address</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <select class="form-select bg-transparent text-white" id="questionType" required>
+                                    <option value="" selected disabled>Select a topic</option>
+                                    <option value="account">Account Issues</option>
+                                    <option value="billing">Billing Questions</option>
+                                    <option value="service">Service Information</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <label for="questionType">My Question is About</label>
+                            </div>
+
+                            <!-- Other Question Field -->
+                            <div id="otherQuestionContainer" class="form-floating mb-4" style="display: none; opacity: 0; max-height: 0;">
+                                <input type="text" class="form-control bg-transparent text-white" id="otherQuestion"
+                                       placeholder="Please describe your question">
+                                <label for="otherQuestion">Please describe your question</label>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i> Submit Question
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

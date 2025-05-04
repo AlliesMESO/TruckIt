@@ -3,3 +3,125 @@
 
 // Write your JavaScript code.
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get form elements
+    const questionType = document.getElementById('questionType');
+    const otherContainer = document.getElementById('otherQuestionContainer');
+    const otherInput = document.getElementById('otherQuestion');
+    const otherLabel = document.querySelector('#otherQuestionContainer label');
+    const helpForm = document.getElementById('helpForm');
+
+    // Initialize - hide the field if not "Other"
+    if (questionType && otherContainer && otherInput) {
+        // Set initial state
+        if (questionType.value !== 'other') {
+            hideOtherField();
+        }
+
+        // Add change event listener
+        questionType.addEventListener('change', function () {
+            if (this.value === 'other') {
+                showOtherField();
+            } else {
+                hideOtherField();
+            }
+        });
+    }
+
+    // Form submission handling
+    if (helpForm) {
+        helpForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Validate form
+            if (!this.checkValidity()) {
+                this.reportValidity();
+                return;
+            }
+
+            await submitFormData(this);
+        });
+    }
+
+    // Helper functions
+    function showOtherField() {
+        otherContainer.style.display = 'block';
+        otherInput.required = true;
+
+        // Trigger animations
+        setTimeout(() => {
+            otherContainer.style.opacity = '1';
+            otherContainer.style.maxHeight = '200px';
+            otherLabel.style.opacity = '1';
+            otherLabel.style.maxHeight = '50px';
+            otherInput.focus();
+        }, 10);
+    }
+
+    function hideOtherField() {
+        otherContainer.style.opacity = '0';
+        otherContainer.style.maxHeight = '0';
+        otherLabel.style.opacity = '0';
+        otherLabel.style.maxHeight = '0';
+        otherInput.required = false;
+        otherInput.value = '';
+
+        setTimeout(() => {
+            otherContainer.style.display = 'none';
+        }, 300);
+    }
+
+    async function submitFormData(form) {
+        try {
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+
+            // Prepare form data
+            const formData = {
+                firstName: form.querySelector('#firstName').value,
+                lastName: form.querySelector('#lastName').value,
+                email: form.querySelector('#email').value,
+                questionType: questionType.value,
+                otherQuestion: questionType.value === 'other' ? otherInput.value : null
+            };
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Show success message
+            showSuccessMessage(form);
+
+            // Reset form
+            form.reset();
+            hideOtherField();
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Submission failed. Please try again.');
+        } finally {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i> Submit Question';
+            }
+        }
+    }
+
+    function showSuccessMessage(form) {
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success mt-3';
+        successAlert.innerHTML = '<i class="fas fa-check-circle me-2"></i> Thank you! Your question has been submitted.';
+        form.parentNode.insertBefore(successAlert, form.nextSibling);
+
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+            successAlert.style.opacity = '0';
+            setTimeout(() => successAlert.remove(), 300);
+        }, 5000);
+    }
+
+
+});

@@ -45,24 +45,24 @@
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/services/freight">Freight Transport</a></li>
-                                <li><a class="dropdown-item" href="/services/fleet">Fleet Management</a></li>
-                                <li><a class="dropdown-item" href="/services/cold-chain">Cold Chain Logistics</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="Freight">Freight Transport</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="Fleet">Fleet Management</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="ColdChain">Cold Chain Logistics</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog">Blog</a>
+                            <a class="nav-link" asp-controller="Blog" asp-action="Index">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/help">Help Center</a>
+                            <a class="nav-link" asp-controller="Help" asp-action="Index">Help Center</a>
                         </li>
                     </ul>
 
                     <div class="d-flex gap-2">
-                        <a href="/demo" class="btn btn-outline-light btn-sm my-1">
+                        <a asp-controller="Demo" asp-action="Index" class="btn btn-outline-light btn-sm my-1">
                             <i class="fas fa-play-circle me-1"></i> Live Demo
                         </a>
-                        <a href="/contact" class="btn btn-warning btn-sm my-1">
+                        <a asp-controller="Contact" asp-action="Index" class="btn btn-warning btn-sm my-1">
                             <i class="fas fa-phone-alt me-1"></i> Get Quote
                         </a>
                     </div>
@@ -87,17 +87,17 @@
                 <div class="col-md-2 mb-4 mb-md-0">
                     <h5 class="fw-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="/" class="text-white-50">Home</a></li>
-                        <li class="mb-2"><a href="/services" class="text-white-50">Services</a></li>
-                        <li class="mb-2"><a href="/blog" class="text-white-50">Blog</a></li>
-                        <li class="mb-2"><a href="/contact" class="text-white-50">Contact</a></li>
+                        <li class="mb-2"><a asp-controller="Home" asp-action="Index" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a asp-controller="Services" asp-action="Index" class="text-white-50">Services</a></li>
+                        <li class="mb-2"><a asp-controller="Blog" asp-action="Index" class="text-white-50">Blog</a></li>
+                        <li class="mb-2"><a asp-controller="Contact" asp-action="Index" class="text-white-50">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4 mb-md-0">
-                    <h5 class="fw-bold mb-3">Contact Us</h5>-
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Western Cape, Northern Suburbs</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (+27) 8492-8322</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (+27) 849-283-543</li>
                         <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@truckitpro.com</li>
                     </ul>
                 </div>
