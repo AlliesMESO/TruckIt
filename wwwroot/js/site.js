@@ -6,6 +6,13 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get form elements
+
+    //Register button 
+    const registerBtn = document.querySelector('.register-button-container');
+    const showTimes = [100, 200, 000, 70000, 120000]; // 10s, 20s, 40s, etc.
+    let currentIndex = 0;
+
+    //Other Question Field
     const questionType = document.getElementById('questionType');
     const otherContainer = document.getElementById('otherQuestionContainer');
     const otherInput = document.getElementById('otherQuestion');
@@ -34,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
         helpForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            if (this.dataset.submitting) return; // Prevent double submission
+            this.dataset.submitting = 'true';
+
             // Validate form
             if (!this.checkValidity()) {
                 this.reportValidity();
@@ -45,6 +55,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Helper functions
+
+    // RegisterButton function
+    function showRegisterButton() {
+        // Show button with pulse
+        registerBtn.style.display = 'block';
+        
+        // Hide after 5 seconds
+        setTimeout(() => {
+            registerBtn.style.display = 'none';
+            
+            // Schedule next appearance
+            currentIndex = (currentIndex + 1) % showTimes.length;
+            setTimeout(showRegisterButton, showTimes[currentIndex]);
+        }, 5000);
+
+        // Initial delay (10s)
+        setTimeout(showRegisterButton, showTimes[0]);
+    }
+
     function showOtherField() {
         otherContainer.style.display = 'block';
         otherInput.required = true;
@@ -109,19 +138,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
     function showSuccessMessage(form) {
+        // First remove any existing alerts
+        const existingAlerts = form.parentNode.querySelectorAll('.alert-success');
+        existingAlerts.forEach(alert => alert.remove());
+
         const successAlert = document.createElement('div');
-        successAlert.className = 'alert alert-success mt-3';
-        successAlert.innerHTML = '<i class="fas fa-check-circle me-2"></i> Thank you! Your question has been submitted.';
+        successAlert.className = 'alert alert-success mt-3 fade-in';
+        successAlert.innerHTML = `
+        <i class="fas fa-check-circle me-2"></i>
+        <strong>Received!</strong> We'll contact you at ${form.email.value} within 24 hours.
+    `;
+
         form.parentNode.insertBefore(successAlert, form.nextSibling);
 
         // Remove success message after 5 seconds
         setTimeout(() => {
-            successAlert.style.opacity = '0';
+            successAlert.classList.add('fade-out');
             setTimeout(() => successAlert.remove(), 300);
         }, 5000);
     }
-
 
 });
