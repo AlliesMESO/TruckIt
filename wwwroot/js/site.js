@@ -7,10 +7,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Get form elements
 
-    //Register button 
+    //Register button timing logic
     const registerBtn = document.querySelector('.register-button-container');
-    const showTimes = [100, 200, 000, 70000, 120000]; // 10s, 20s, 40s, etc.
+    const showSequence = [6000, 11000, 6000, 6000, 50000, 11000]; // Initial sequence
+    const finalInterval = 15000; // Repeating interval after sequence completes
     let currentIndex = 0;
+    let sequenceComplete = false;
 
     //Other Question Field
     const questionType = document.getElementById('questionType');
@@ -58,21 +60,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // RegisterButton function
     function showRegisterButton() {
-        // Show button with pulse
-        registerBtn.style.display = 'block';
-        
-        // Hide after 5 seconds
-        setTimeout(() => {
-            registerBtn.style.display = 'none';
-            
-            // Schedule next appearance
-            currentIndex = (currentIndex + 1) % showTimes.length;
-            setTimeout(showRegisterButton, showTimes[currentIndex]);
-        }, 5000);
+        registerBtn.style.display = 'flex';
+        registerBtn.style.animation = 'fadeIn 0.5s forwards';
 
-        // Initial delay (10s)
-        setTimeout(showRegisterButton, showTimes[0]);
+        setTimeout(() => {
+            registerBtn.style.animation = 'fadeOut 0.5s forwards';
+            setTimeout(() => {
+                registerBtn.style.display = 'none';
+                scheduleNextAppearance();
+            }, 500);
+        }, 9500); // Visible for 9.5s
     }
+
+    function scheduleNextAppearance() {
+        if (!sequenceComplete) {
+            if (currentIndex < showSequence.length - 1) {
+                currentIndex++;
+                setTimeout(showRegisterButton, showSequence[currentIndex]);
+            } else {
+                sequenceComplete = true;
+                setTimeout(showRegisterButton, finalInterval);
+            }
+        } else {
+            setTimeout(showRegisterButton, finalInterval);
+        }
+    }
+
+    // Initial delay
+    setTimeout(showRegisterButton, showSequence[0]);
 
     function showOtherField() {
         otherContainer.style.display = 'block';

@@ -15,11 +15,30 @@
     <style>
         html, body {
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Remove default spacing around the header */
+        header.sticky-top {
+            top: 0;
+            margin: 0;
+        }
+
+        /* Ensure navbar has no extra spacing */
+        .navbar {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Remove any default body padding */
+        body {
+            padding-top: 0 !important;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - Now flush to top -->
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
@@ -70,13 +89,23 @@
             </div>
         </nav>
 
-        <div class="register-button-container" @* style="display: none;" *@ >
-            <a asp-controller="Account" asp-action="Register" class="btn-register">
-                <i class="fas fa-user-tie"></i> Register
-                <span class="pulse-ring"></span>
-            </a>
-        </div>
+        @* Auth. buttons *@
+        <div class="auth-buttons-container">
+            <!-- Register Button -->
+            <div class="register-button-container" style="display: none;">
+                <a asp-controller="Account" asp-action="Register" class="btn-register">
+                    <i class="fas fa-user-tie"></i> Register
+                    <span class="pulse-ring"></span>
+                </a>
+            </div>
 
+            <!-- Login Button (existing) -->
+            <div class="login-button-container">
+                <a asp-controller="Account" asp-action="Login" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -133,3 +162,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+

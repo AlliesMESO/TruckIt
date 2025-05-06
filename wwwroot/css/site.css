@@ -215,119 +215,107 @@ label {
     align-items: center;
 }
 
+/* ===== Auth Buttons ===== */
+.auth-buttons-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    pointer-events: none;
+}
+
 /* ===== Login Button Styles ===== */
 .login-button-container {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 1px;
+    bottom: 1px;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
+    pointer-events: auto;
 }
-/* PULSE ANIMELOGIN BUTTON
+
 .btn-login {
-    padding: 0.75rem 1.75rem;
-    border-radius: 50px;
-    font-weight: 600;
+    /* Exact same sizing as register button */
+    width: 68px;
+    height: 17px;
+    padding: 0;
+    font-size: 0.65rem;
+    /* Same structural styling */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 4px 12px 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    text-decoration: none;
+    /* Unique login button colors */
     background-color: rgba(13, 110, 253, 0.4);
     color: white;
-    border: 2px solid rgba(13, 110, 253, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-*/
- 
-/**?SOLID LOGIN BUTTON */
-.btn-login {
-    padding: 0.75rem 1.75rem;
-    border-radius: 50px;
     font-weight: 600;
-    background-color: rgba(13, 110, 253, 0.4); /* Semi-transparent blue */
-    color: white;
-    border: 2px solid rgba(13, 110, 253, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
 }
-    /* Hover State (Iris glow) */
+
     .btn-login:hover {
         background-color: rgba(33, 150, 83, 0.75);
-        box-shadow: 0 0 15px rgba(40, 167, 69, 0.4); /* Glow effect */
+        box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
     }
 
-    /* Active/Focus State (Conscious visual feedback) */
     .btn-login:active,
     .btn-login:focus {
-        background-color: rgba(22, 115, 51, 0.85); /* Richer green */
+        background-color: rgba(22, 115, 51, 0.85);
         border-color: rgba(76, 175, 80, 0.8);
-        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3), /* Focus ring */
-        0 0 20px rgba(40, 167, 69, 0.5); /* Enhanced glow */
-        transform: translateY(-1px); /* Subtle press effect */
+        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3), 0 0 20px rgba(40, 167, 69, 0.5);
+        transform: translateY(-1px);
     }
-
 
     .btn-login i {
-        margin-right: 0.5rem;
-        font-size: 1.1rem;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        font-size: 0.7rem;
+        margin-right: 0.25rem;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     }
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(13, 110, 253, 0.3);
-    }
-}
-
-
 
 /* Register Button Specific Styles */
-
 .register-button-container {
     position: fixed;
-    top: 120px;
     left: 1px;
+    bottom: 1px;
     z-index: 1050;
-    animation: fadeIn 1.5s ease 10s forwards;
-  /*  opacity: 0;*/
+    pointer-events: auto;
+    animation: fadeIn 1s ease-out;
+    will-change: transform;
 }
 
-
 .btn-register {
-    width: 68px; /* Reduced width */
-    height: 17px; /* Reduced height */
-    border-radius: 12px 4px 12px 4px; /* Cylinder-like edges */
-    background: rgba(46, 204, 113, 0.6);
+    width: 68px;
+    height: 17px;
+    border-radius: 12px 4px 12px 4px;
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.6) 0%, rgba(200, 122, 255, 0.6) 100%);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.1); /* Cylinder shading */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), inset 0 -1px 2px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.15);
     font-size: 0.65rem;
+    text-decoration: none;
 }
 
     .btn-register i {
-    font-size: 0.9rem; /* Smaller icon */
-    margin-right: 0.3rem; /* Reduced spacing */
-    text-shadow: none; /* Removed text shadow */
-}
+        font-size: 0.9rem;
+        margin-right: 0.3rem;
+        text-shadow: none;
+    }
 
     .btn-register:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.8) 0%, rgba(200, 122, 255, 0.8) 100%);
     }
 
-
-/* Pulse Animation (Only shows during active periods) */
+/* Pulse Animation */
 .pulse-ring {
     position: absolute;
     width: 100%;
@@ -339,7 +327,6 @@ label {
     z-index: -1;
     animation: pulse 2s infinite;
 }
-
 
 @keyframes pulse {
     0% {
@@ -358,6 +345,29 @@ label {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+}
 
 /* ===== Main CTA Buttons ===== */
 .btn-light {
@@ -639,11 +649,6 @@ select::-ms-expand {
         background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
     }
 
-    .login-button-container {
-        right: 20px;
-        bottom: 20px;
-    }
-
     .btn-login {
         background-color: rgba(13, 110, 253, 0.45);
     }
@@ -665,11 +670,6 @@ select::-ms-expand {
 
     .lead {
         font-size: 1.1rem;
-    }
-
-    .login-button-container {
-        right: 15px;
-        bottom: 15px;
     }
 
     .btn-login {
@@ -697,11 +697,6 @@ select::-ms-expand {
         margin-bottom: 1rem;
     }
 
-    .login-button-container {
-        right: 12px;
-        bottom: 12px;
-    }
-
     .btn-login {
         padding: 0.6rem 1.1rem;
         font-size: 0.9rem;
@@ -714,11 +709,6 @@ select::-ms-expand {
 }
 
 @media (max-width: 375px) {
-    .login-button-container {
-        right: 10px;
-        bottom: 10px;
-    }
-
     .btn-login {
         padding: 0.55rem 1rem;
         font-size: 0.85rem;
